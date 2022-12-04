@@ -1,0 +1,29 @@
+{%extends 'base.html'%} {%block content%} {%include 'components/navBar01.html'%}
+<div
+  class="card"
+  style="
+    text-align: center;
+    width: fit-content;
+    margin-top: 50px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 20px;
+  "
+>
+  <h1>Login into the Account</h1>
+  <img
+    src="https://cdn.pixabay.com/photo/2017/03/21/02/00/user-2160923_960_720.png"
+    alt="No Image Found"
+    style="transform: scale(0.7)"
+  />
+  <form action="" method="POST">
+    {%csrf_token%} {{form}} <br /><br />
+    <button class="btn btn-success" type="submit" style="width: 80%">
+      LOGIN INTO ACCOUNT
+    </button>
+  </form>
+</div>
+{%endblock%} {%block head%}
+<style></style>
+
+{%endblock%}
