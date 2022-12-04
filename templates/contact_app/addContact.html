@@ -1,0 +1,8 @@
+{%extends 'base.html'%}{%block content%} {%include 'components/navBar02.html'%}
+<div class="card">
+  <form action="" method="POST">
+    {%csrf_token%} {{form.as_p}}
+    <button type="submit">ADD CONTACT</button>
+  </form>
+</div>
+{%endblock%}
