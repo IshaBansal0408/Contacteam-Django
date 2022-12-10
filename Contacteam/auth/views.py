@@ -19,4 +19,4 @@ class Register(CreateView):
 
 class Login(LoginView):
     template_name = 'auth/login.html'
-    redirect_authenticated_user = True
+    # redirect_authenticated_user = True

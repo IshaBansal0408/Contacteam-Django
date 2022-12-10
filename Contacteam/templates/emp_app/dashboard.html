@@ -1,1 +1,11 @@
-{% extends 'index.html' %} {% block content %}{%endblock%}
+{% extends 'index.html' %} {% block content %}
+<div class="container">
+    <h1> Welcome, {{user}}!</h1>
+
+    <div class="card">
+        <a type="button" class="btn btn-warning" href="{% url 'addEmp' %}">Add New Employee</a>
+    </div>
+
+    {% if user == 'admin'%} I am admin {%endif%}
+</div>
+{%endblock%}
