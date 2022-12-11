@@ -7,16 +7,18 @@ from django.contrib.auth.views import (
     LoginView,
     LogoutView as Logout
 )
+from auth import forms
 # Create your views here.
 
 
 class Register(CreateView):
     model = User
     template_name = 'auth/signup.html'
-    fields = ['first_name', 'last_name', 'username', 'password']
+    form_class = forms.addUser
+    # fields = ['first_name', 'last_name', 'username', 'password']
     success_url = 'http://localhost:8000/'
 
 
 class Login(LoginView):
     template_name = 'auth/login.html'
-    # redirect_authenticated_user = True
+    redirect_authenticated_user = True

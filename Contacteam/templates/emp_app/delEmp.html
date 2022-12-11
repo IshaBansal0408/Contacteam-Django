@@ -1,0 +1,10 @@
+{% extends 'index.html' %} {% block content %}
+
+<div class="container" style="margin-top: 100px ; text-align: center;">
+    <h1>{{object}} Deleted Successfully!</h1>
+    <form action="" method="POST">
+        {%csrf_token%}
+        <button type="submit" class="btn btn-success">OKAY</button>
+    </form>
+</div>
+{%endblock%}

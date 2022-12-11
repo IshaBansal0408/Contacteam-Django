@@ -1,0 +1,72 @@
+{% extends 'index.html' %} {% block content %}
+
+<div class="container" style="margin-top: 30px;">
+    <div class="card">
+        <div class="card-header" style="text-align: center;">
+            {{object.first_name}} {{object.last_name}}
+        </div>
+
+        <div class="clearfix split-items">
+            <li class="list-group-item left-side">GENDER</li>
+            <li class="list-group-item right-side ">{{object.gender}}</li>
+        </div>
+        <div class="clearfix split-items">
+            <li class="list-group-item left-side">PHONE NUMBER</li>
+            <li class="list-group-item right-side ">{{object.phoneNo}}</li>
+        </div>
+        <div class="clearfix split-items">
+            <li class="list-group-item left-side">HIRE DATE</li>
+            <li class="list-group-item right-side ">{{object.hire_date}}</li>
+        </div>
+        <div class="clearfix split-items">
+            <li class="list-group-item left-side">ROLE</li>
+            <li class="list-group-item right-side ">{{object.role}}</li>
+        </div>
+        <div class="clearfix split-items">
+            <li class="list-group-item left-side">DEPARTMENT</li>
+            <li class="list-group-item right-side ">{{object.department}}</li>
+        </div>
+        <div class="clearfix split-items">
+            <li class="list-group-item left-side">SALARY</li>
+            <li class="list-group-item right-side ">{{object.salary}}</li>
+        </div>
+        <div class="clearfix split-items">
+            <li class="list-group-item left-side">BONUS</li>
+            <li class="list-group-item right-side ">{{object.bonus}}</li>
+        </div>
+        <div class="clearfix split-items">
+            <li class="list-group-item left-side">MANAGER</li>
+            <li class="list-group-item right-side ">{{object.employer}}</li>
+        </div>
+    </div>
+</div>
+{%endblock%}
+
+{%block head%}
+<style>
+    .container {
+        width: 75%;
+    }
+
+    .list-group-item.left-side,
+    .list-group-item.right-side {
+        margin: 0 0 -1px;
+        float: left;
+        width: 50%;
+        border-bottom-width: 0px;
+    }
+
+    .split-items .list-group-item.left-side {
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+
+    .split-items .list-group-item.right-side {
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+        border-top-right-radius: 4px;
+        border-left: 0;
+    }
+</style>
+{%endblock%}

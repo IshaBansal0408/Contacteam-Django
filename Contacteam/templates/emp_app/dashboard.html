@@ -1,11 +1,12 @@
 {% extends 'index.html' %} {% block content %}
-<div class="container">
+<div class="container" style="text-align: center;">
     <h1> Welcome, {{user}}!</h1>
 
     <div class="card">
-        <a type="button" class="btn btn-warning" href="{% url 'addEmp' %}">Add New Employee</a>
+        <a type="button" class="btn btn-warning" href="{% url 'addEmp' %}">Add New Employee</a><br>
+        <a type="button" class="btn btn-info" href="{% url 'allEmp' %}">Manage your Employee</a>
     </div>
 
-    {% if user == 'admin'%} I am admin {%endif%}
-</div>
+
+</div>{% if user == 'admin'%} I am admin {%endif%}
 {%endblock%}
