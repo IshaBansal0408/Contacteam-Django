@@ -1,0 +1,40 @@
+{% extends 'index.html' %} {% block content %}
+
+<div class="container" style="margin-top: 30px;">
+    <div class="card">
+        <div class="clearfix split-items">
+            <li class="list-group-item left-side">NAME</li>
+            <li class="list-group-item right-side ">{{object.name}}</li>
+        </div>
+    </div>
+</div>
+{%endblock%}
+
+{%block head%}
+<style>
+    .container {
+        width: 75%;
+    }
+
+    .list-group-item.left-side,
+    .list-group-item.right-side {
+        margin: 0 0 -1px;
+        float: left;
+        width: 50%;
+        border-bottom-width: 0px;
+    }
+
+    .split-items .list-group-item.left-side {
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+
+    .split-items .list-group-item.right-side {
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+        border-top-right-radius: 4px;
+        border-left: 0;
+    }
+</style>
+{%endblock%}

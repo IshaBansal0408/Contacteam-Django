@@ -1,0 +1,31 @@
+{% extends 'index.html' %} {% block content %}
+
+<div class="container" style="text-align: center; margin-top: 20px;">
+    <h1>Here is the list of all the Roles</h1>
+    <table class="table">
+        <thead class="table-dark ">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name of Role</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        {%for r in allRoleList%}
+        <tbody>
+            <tr>
+                <th scope="row">{{r.id}}</th>
+                <td>{{r.name}}</td>
+                <td><a type="button" href="{% url 'viewRole' r.pk %}" class="btn btn-danger">VIEW</a></td>
+                {% if user == 'admin'%}
+                <td><a type="button" class="btn btn-warning" href="{% url 'updRole' r.pk %}">UPDATE</a>
+                </td>
+                <td><a type="button" href="{% url 'delRole' r.pk %}" class="btn btn-danger">DELETE</a></td>
+                {%endif%}
+
+            </tr>
+        </tbody>{%endfor%}
+    </table>
+</div>
+{%endblock%}

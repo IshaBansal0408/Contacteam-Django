@@ -22,3 +22,14 @@ class addDeptForm(forms.ModelForm):
     class Meta:
         model = models.Department
         fields = ('name', 'location',)
+
+
+class addRoleForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(addRoleForm, self).__init__(*args, **kwargs)
+        for visible in self.visible_fields():
+            visible.field.widget.attrs['class'] = 'form-control'
+
+    class Meta:
+        model = models.Role
+        fields = ('name',)

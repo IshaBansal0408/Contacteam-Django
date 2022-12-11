@@ -17,4 +17,10 @@ urlpatterns = [
     path('updDept/<int:pk>', views.updDept.as_view(), name='updDept'),
     path('viewDept/<int:pk>', views.viewDept.as_view(), name='viewDept'),
 
+    path('addRole', views.addRole.as_view(), name='addRole'),
+    path('allRole', views.allRole.as_view(), name='allRole'),
+    path('delRole/<int:pk>', views.delRole.as_view(), name='delRole'),
+    path('updRole/<int:pk>', views.updRole.as_view(), name='updRole'),
+    path('viewRole/<int:pk>', views.viewRole.as_view(), name='viewRole'),
+
 ]

@@ -48,6 +48,7 @@ class allEmp(LoginRequiredMixin, ListView):
     context_object_name = 'allEmpList'
 
 
+@login_required(login_url='auth/login')
 def partEmp(request):
     allEmpList = models.Employee.objects.filter(employer=request.user)
     print(allEmpList)
@@ -92,6 +93,11 @@ class allDept(LoginRequiredMixin, ListView):
     template_name = 'emp_app/allDept.html'
     context_object_name = 'allDeptList'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['user'] = str(self.request.user)
+        return context
+
 
 class delDept(LoginRequiredMixin, DeleteView):
     model = models.Department
@@ -109,3 +115,39 @@ class updDept(LoginRequiredMixin, UpdateView):
 class viewDept(DetailView):
     model = models.Department
     template_name = 'emp_app/viewDept.html'
+
+
+class addRole(LoginRequiredMixin, CreateView):
+    model = models.Role
+    template_name = 'emp_app/addRole.html'
+    form_class = forms.addRoleForm
+    success_url = 'allRole'
+
+
+class allRole(LoginRequiredMixin, ListView):
+    model = models.Role
+    template_name = 'emp_app/allRole.html'
+    context_object_name = 'allRoleList'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['user'] = str(self.request.user)
+        return context
+
+
+class delRole(LoginRequiredMixin, DeleteView):
+    model = models.Role
+    template_name = 'emp_app/delRole.html'
+    success_url = 'http://localhost:8000/allEmp'
+
+
+class updRole(LoginRequiredMixin, UpdateView):
+    model = models.Role
+    template_name = 'emp_app/updRole.html'
+    form_class = forms.addRoleForm
+    success_url = 'http://localhost:8000/allRole'
+
+
+class viewRole(DetailView):
+    model = models.Role
+    template_name = 'emp_app/viewRole.html'
