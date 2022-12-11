@@ -31,7 +31,6 @@ def dashboard(request):
 class addEmp(LoginRequiredMixin, CreateView):
     model = models.Employee
     template_name = 'emp_app/addEmp.html'
-    # fields = '__all__'
     form_class = forms.addEmpForm
     success_url = 'allEmp'
 
@@ -39,9 +38,6 @@ class addEmp(LoginRequiredMixin, CreateView):
         form.instance.employer = self.request.user
         form.instance.hire_date = timezone.now()
         return super().form_valid(form)
-
-    # def get_absolute_url(self):  # new
-    #     return reverse('allEmp', args=[str(self.id)])
 
 
 class allEmp(LoginRequiredMixin, ListView):
@@ -57,13 +53,8 @@ class delEmp(LoginRequiredMixin, DeleteView):
 
 
 class updEmp(LoginRequiredMixin, UpdateView):
-    # model = models.Employee
-    # template_name = 'emp_app/updEmp.html'
-    # context_object_name = 'empobj'
-
     model = models.Employee
     template_name = 'emp_app/updEmp.html'
-    # fields = '__all__'
     form_class = forms.addEmpForm
     success_url = 'http://localhost:8000/allEmp'
 
@@ -75,4 +66,35 @@ class updEmp(LoginRequiredMixin, UpdateView):
 
 class viewEmp(DetailView):
     model = models.Employee
-    template_name = 'emp_app/viewEmp.html'
+    template_name = 'emp_app/viewDept.html'
+
+
+class addDept(LoginRequiredMixin, CreateView):
+    model = models.Department
+    template_name = 'emp_app/addDept.html'
+    form_class = forms.addDeptForm
+    success_url = 'allDept'
+
+
+class allDept(LoginRequiredMixin, ListView):
+    model = models.Department
+    template_name = 'emp_app/allDept.html'
+    context_object_name = 'allDeptList'
+
+
+class delDept(LoginRequiredMixin, DeleteView):
+    model = models.Department
+    template_name = 'emp_app/delDept.html'
+    success_url = 'http://localhost:8000/allEmp'
+
+
+class updDept(LoginRequiredMixin, UpdateView):
+    model = models.Department
+    template_name = 'emp_app/updDept.html'
+    form_class = forms.addDeptForm
+    success_url = 'http://localhost:8000/allDept'
+
+
+class viewDept(DetailView):
+    model = models.Department
+    template_name = 'emp_app/viewDept.html'
