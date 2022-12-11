@@ -20,9 +20,11 @@
                 <td>{{d.name}}</td>
                 <td>{{d.location}}</td>
                 <td><a type="button" href="{% url 'viewDept' d.pk %}" class="btn btn-danger">VIEW</a></td>
+                {% if user == 'admin'%}
                 <td><a type="button" class="btn btn-warning" href="{% url 'updDept' d.pk %}">UPDATE</a>
                 </td>
                 <td><a type="button" href="{% url 'delDept' d.pk %}" class="btn btn-danger">DELETE</a></td>
+                {%endif%}
 
             </tr>
         </tbody>{%endfor%}
