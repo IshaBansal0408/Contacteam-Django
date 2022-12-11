@@ -1,12 +1,5 @@
 {% extends 'index.html' %} {% block content %}
-<!-- <div class="container" style="text-align: center;">
-    <h1> Welcome, {{user}}!</h1>
 
-    <div class="card">
-        <a type="button" class="btn btn-warning" href="{% url 'addEmp' %}">Add New Employee</a><br>
-        <a type="button" class="btn btn-info" href="{% url 'allEmp' %}">Manage your Employee</a>
-    </div>
-</div>{% if user == 'admin'%} I am admin {%endif%} -->
 <div id="mycarousel" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item active">
@@ -60,6 +53,8 @@
 
 
 <div class="container" style="margin-top: 30px;">
+    <a type="button" class="btn btn-dark" href="{% url 'allEmp' %}" style="width: 100%;">SHOW ALL EMPLOYEES!</a><br>
+    <br>
     <div class="row">
         <div class="col-md-4">
             <h3>Manage All Employee</h3>
@@ -67,7 +62,7 @@
                 <div class="card-body">
                     <a type="button" class="btn btn-warning" href="{% url 'addEmp' %}" style="width: 100%;">Add New
                         Employee</a><br> <br>
-                    <a type="button" class="btn btn-info" href="{% url 'allEmp' %}" style="width: 100%;">Manage your
+                    <a type="button" class="btn btn-info" href="{% url 'partEmp' %}" style="width: 100%;">Manage your
                         Employee</a>
                 </div>
             </div>
@@ -100,7 +95,7 @@
         {%endif%}
         {% if user != 'admin'%}
         <div class="col-md-4">
-            <h3>Manage All Roles</h3>
+            <!-- <h3>Manage All Roles</h3> -->
             <div class="card mb-4 box-shadow">
                 <div class="card-body">
                     <a type="button" class="btn btn-dark" href="{% url 'allDept' %}" style="width: 100%;">See All

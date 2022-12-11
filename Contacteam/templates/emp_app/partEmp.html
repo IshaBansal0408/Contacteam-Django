@@ -17,6 +17,8 @@
                 <th scope="col">Bonus</th>
                 <th scope="col">Manager</th>
                 <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
         </thead>
         {%for e in allEmpList%}
@@ -34,6 +36,10 @@
                 <td>{{e.bonus}}</td>
                 <td>{{e.employer}}</td>
                 <td><a type="button" href="{% url 'viewEmp' e.pk %}" class="btn btn-danger">VIEW</a></td>
+                <td><a type="button" class="btn btn-warning" href="{% url 'updEmp' e.pk %}">UPDATE</a>
+                </td>
+                <td><a type="button" href="{% url 'delEmp' e.pk %}" class="btn btn-danger">DELETE</a></td>
+
             </tr>
         </tbody>{%endfor%}
     </table>

@@ -1,3 +1,4 @@
+# from django_filters.views import FilterView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
@@ -11,6 +12,7 @@ from django.views.generic import (
 )
 from emp_app import models, forms
 from django.urls import reverse
+from django.contrib.auth.models import User
 # Create your views here.
 
 
@@ -46,6 +48,15 @@ class allEmp(LoginRequiredMixin, ListView):
     context_object_name = 'allEmpList'
 
 
+def partEmp(request):
+    allEmpList = models.Employee.objects.filter(employer=request.user)
+    print(allEmpList)
+    context = {
+        'allEmpList': allEmpList
+    }
+    return render(request, 'emp_app/partEmp.html', context)
+
+
 class delEmp(LoginRequiredMixin, DeleteView):
     model = models.Employee
     template_name = 'emp_app/delEmp.html'
@@ -64,9 +75,9 @@ class updEmp(LoginRequiredMixin, UpdateView):
         return super().form_valid(form)
 
 
-class viewEmp(DetailView):
+class viewEmp(LoginRequiredMixin, DetailView):
     model = models.Employee
-    template_name = 'emp_app/viewDept.html'
+    template_name = 'emp_app/viewEmp.html'
 
 
 class addDept(LoginRequiredMixin, CreateView):
